@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+	--bg: #222222;
+	--dbg: #141414;
+	--fg: #cecece;
+	--specl: #e77824;
+	--specd: #ff2030;
+}
+
+::selection{
+	background: var(--specl);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+	background: var(--specl);
+}
+
+::-webkit-scrollbar-track{
+	background: transparent;
+}
+
+*{
+	font-family: Poppins;
+	color: var(--fg);
+}
+
+body, html{
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+.navbar{
+	width: 96vw;
+	background: var(--dbg);
+	padding: 2vw;
+	z-index: 3;
+	user-select: none;
+	position: fixed;
+	align-items: center;
+	display: flex;
+}
+
+.links{
+	width: 100%;
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+#menu-icon{
+	display: none;
+}
+
+.nav-manu-icon-wrapper{
+	margin: auto;
+}
+
+.navbar a{
+	font-size: 17px;
+	text-decoration: none;
+}
+
+button{
+	background: linear-gradient(135deg, var(--specd), var(--specl));
+	padding: 0.75vw;
+	border-radius: 1vh;
+	font-size: 14px;
+	border: none;
+}
+
+/*.spacer-navbar{
+	width: 100vw;
+	height: 6.5vw;
+}*/
+
+.video-container{
+	width: 100vw;
+	user-select: none;
+	padding-top: 5vw;
+	max-height: 50vw;
+	display: flex;
+}
+
+.video-overlay{
+	position: absolute;
+	background: pink;
+	width: 75vw;
+	height: 33.75vw;
+	background: linear-gradient(90deg, var(--bg) 47.5%, transparent);
+	width: 100vw;
+	align-items: center;
+	display: flex;
+}
+
+.video-overlay h2{
+	transform: translateX(5vw);
+	font-size: 84px;
+}
+
+.gradient-text{
+	background: linear-gradient(135deg, var(--specd), var(--specl));
+	text-fill-color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+
+video{
+	width: 60vw;
+	margin-left: auto;
+}
+
+.norlpad{
+	padding: 3.5vw 0vw 3.5vw 0vw;
+	width: 100vw;
+}
+
+.rlpad{
+	padding: 3.5vw 5vw 3.5vw 5vw;
+	width: 90vw;
+}
+
+.darkbg{
+	background: var(--dbg);
+}
+
+.lightbg{
+	background: var(--bg);
+}
+
+.perks{
+	display: flex;
+	justify-content: space-around;
+}
+
+.perks-card{
+	width: 14vw;
+	text-align: center;
+}
+
+.perks-card i{
+	background: linear-gradient(135deg, var(--specd), var(--specl));
+	text-fill-color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  font-size: 64px;
+  margin-bottom: 2vw;
+}
+
+.section-title{
+	font-size: 48px;
+}
+
+.desc-text{
+	font-size: 18px;
+}
+
+.section button{
+	min-width: 6vw;
+	font-size: 16px;
+}
+
+.flex{
+	display: flex;
+	gap: 5vw;
+}
+
+.footer-infos{
+	display: flex;
+	justify-content: space-around;
+	padding: 1vw 5vw 1vw 5vw;
+}
+
+.logreg-video{
+	width: 100vw;
+	filter: blur(3vh);
+}
+
+.no-ox{
+	overflow-x: hidden;
+}
+
+.no-oy{
+	overflow-y: hidden;
+}
+
+.loginbox{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20vw;
+	height: auto;
+	transform: translate(-50%, -50%);
+	box-shadow: 0px 0px 20px 2px #000;
+	border-radius: 2.5vh;
+	backdrop-filter: brightness(0.25);
+	padding: 3vw;
+}
+
+.loginbox form input, .loginbox form button{
+	display: block;
+	margin: auto;
+}
+
+.loginbox form h1{
+	text-align: center;
+	margin-bottom: 2.75vw;
+}
+
+form p{
+	text-align: center;
+	font-size: 12px;
+}
+
+form a{
+	text-decoration: none;
+}
+
+.message p{
+	color: black;
+	font-size: 13px;
+}
+
+.message{
+	width: 75%;
+	background: #FB9D9D;
+	user-select: none;
+	margin: auto;
+	margin-bottom: 5vh;
+	margin-top: -3vh;
+	padding: .5vh;
+	border-radius: 1vh;
+	border: 2px solid red;
+}
+
+.loginbox form input{
+	margin-bottom: 3vw;
+	padding: 1.5vh;
+	border-radius: 1vh;
+	border: none;
+	outline: none;
+	background: transparent;
+	box-shadow: 0 0 5px 1px var(--fg), inset 0 0 5px 1px var(--fg);
+}
+
+.seamless-button{
+	background: var(--bg);
+}
+
+.gradient-border{
+	border: 0.25vh solid transparent;
+	background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(135deg, var(--specd), var(--specl)) border-box;
+	border-radius: 1vh;
+}
+
+.gradient-border-reversed{
+	border: 0.25vh solid transparent;
+	background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(-135deg, var(--specd), var(--specl)) border-box;
+	border-radius: 1vh;
+}
+
+ul{
+	line-height: 2;
+}
+
+.indent{
+	margin-left: 2vw;
+}
+
+.option-wrapper{
+	display: flex;
+	justify-content: space-between;
+}
+
+.option img{
+	display: inline;
+}
+
+.option{
+	width: 20vw;
+	text-align: center;
+	padding: 1vh;
+	border-radius: 1vh;
+	user-select: none;
+}
+
+.inactive-border{
+	border: 0.25vh solid #696969;
+}
+
+form input[type="radio"]{
+	visibility: hidden;
+}
+
+form input[type="number"]{
+	border-radius: .5vh;
+	background: var(--dbg);
+	border: .3vh solid #696969;
+	padding: 1vh;
+}
+
+.kg-or-lbs{
+	display: flex;
+	gap: 0;
+}
+
+.kg-or-lbs button{
+	border: .3vh solid var(--specl);
+}
+
+.kg-or-lbs button{
+	background: transparent;
+	transition: 250ms;
+}
+
+.kg-or-lbs button:hover{
+	background: #464646;
+}
+
+.kg-or-lbs button:nth-child(1){
+	border-radius: 1vh 0vh 0vh 1vh;
+	border-right: none;
+}
+
+.kg-or-lbs button:nth-child(2){
+	border-radius: 0vh 1vh 1vh 0vh;
+	border-left: none;
+}
+
+select{
+	appearance: none;
+	background: transparent;
+	border: 0.3vh solid var(--specl);
+	border-radius: .5vh;
+	padding: 1vh;
+	outline: none;
+}
+
+option{
+	background: var(--dbg);
+}
+
+.mobileonly{
+	display: none;
+}
+
+.desktoponly{
+	display: block;
+}
+
+@media only screen and (max-width:700px){
+	html{
+		overflow-x: hidden;
+	}
+
+	.mobileonly{
+		display: block;
+	}
+
+	.desktoponly{
+		display: none;
+	}
+
+	.navbar{
+		height: 7.5vw;
+	}
+
+	.links{
+		background: var(--dbg);
+		box-shadow: 0px 0px 10px 2px var(--dbg);
+		position: absolute;
+		width: 50vw;
+		padding: 5vw;
+		left: 50%;
+		transform: translate(-50%, 55%);
+		line-height: 7.5vw;
+		display: none;
+	}
+
+	.links a, .links button{
+		display: block;
+	}
+
+	.links button{
+		padding: 0.75vh;
+		border: none;
+		margin-top: 5vw;
+	}
+
+	#menu-icon{
+		display: block;
+		transition-timing-function: cubic-bezier(.17,.67,.95,.64);
+		transition: 500ms;
+	}
+
+	.video-container{
+		padding-top: 5vh;
+	}
+
+	.video-overlay h2{
+		font-size: 36px;
+	}
+
+	.video-container video{
+		width: 80vw;
+	}
+
+	.video-overlay{
+		height: 45vw;
+		background: linear-gradient(90deg, var(--bg) 20%, transparent);
+	}
+
+	.perks{
+		overflow-x: auto;
+  	white-space: nowrap;
+  	display: flex;
+  	justify-content: initial;
+  	gap: 10vw;
+	}
+
+	.perks-card{
+		min-width: 75vw;
+	}
+
+	.perks-card i{
+		margin-top: 5vw;
+	}
+
+	.perks-card:first-child{
+		margin-left: 10vw;
+	}
+
+	.perks-card:last-child{
+		margin-right: 10vw;
+	}
+
+	.perks-card p{
+		max-width: inherit;
+		white-space: pre-line;
+	}
+
+	.perks::-webkit-scrollbar {
+	    display: none;
+	}
+
+	.section-title{
+		font-size: 32px;
+	}
+
+	button{
+		padding: 1.25vh;
+	}
+
+	.gradient-border{
+		border: 10px solid var(--specl);
+	}
+
+	.logreg-video{
+		display: none;
+	}
+
+	.loginbox{
+		width: 95vw;
+		height: 95vh;
+		border-radius: 0px;
+		overflow: hidden;
+		display: flex;
+	}
+
+	.loginbox form input{
+		margin-bottom: 6vh;
+		padding: 1.5vh;
+		border-radius: 1vh;
+		border: none;
+		outline: none;
+		background: transparent;
+		box-shadow: 0 0 5px 1px var(--fg), inset 0 0 5px 1px var(--fg);
+	}
+
+	.loginbox form h1{
+		text-align: center;
+		margin-bottom: 5vh;
+	}
+
+	.loginbox form{
+		margin: auto;
+	}
+
+	select{
+		max-width: 50vw;
+	}
+
+	.kg-or-lbs button{
+		min-width: 20vw;
+	}
+
+	.gradient-border{
+		border: 0.25vh solid var(--specl);
+	}
+
+	.over-screen .option{
+		min-width: 50vw;
+		text-align: center;
+		max-width: inherit;
+		white-space: pre-line;
+	}
+
+	.over-screen{
+		overflow-x: auto;
+  	white-space: nowrap;
+  	display: flex;
+  	justify-content: initial;
+  	gap: 10vw;
+	}
+
+	.over-screen .option:last-child{
+		margin-right: 10vw;
+	}
+
+	.over-screen::-webkit-scrollbar {
+    display: none;
+	}
+}

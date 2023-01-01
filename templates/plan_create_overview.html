@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WELCOME TO THE AB STORE</title>
+	<link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='styles/styles.css')  }}">
+	<script src="https://kit.fontawesome.com/2339b7a2a3.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/x-icon" href="{{  url_for('static', filename='images/icons/favicon.ico')  }}">
+</head>
+<body>
+
+<div class="navbar">
+	<div class="links" id="links">	
+		<a href="/">Home</a>
+		<a>Food Calculator</a>
+		<a href="/profile">Profile</a>
+		<a href="/logout"><button class="gradient-border seamless-button">Logout</button></a>
+	</div>
+	<div class="nav-manu-icon-wrapper">
+		<i class="fa-solid fa-bars" id="menu-icon" onmousedown="trigger_menu()"></i>
+	</div>
+</div>
+<div class="spacer-navbar"></div>
+
+<div class="video-container">
+	<div class="video-overlay">
+		<h2>let's create<br>your <span class="gradient-text">workout plan</span></h2>
+	</div>
+	<video id="video" autoplay muted loop>
+		<source src="{{  url_for('static', filename='deps/vid.mp4')  }}" type="video/mp4"></source>
+	</video>
+</div>
+
+<div class="section darkbg rlpad">
+	<h1>here's what you need to know, <span class="gradient-text">{{  name  }}</span></h1><br>
+	<p>For creating your perfect workout plan, we need some information. In the following, you'll get to know what it takes to create your workout plan.</p><br>
+	<ul>
+		<li>Your physical data, like your</li>
+		<li class="indent">weight</li>
+		<li class="indent">height</li>
+		<li class="indent">gender</li>
+		<br>
+		<li>Your fitness level, for example</li>
+		<li class="indent">beginner</li>
+		<li class="indent">intermediate</li>
+		<li class="indent">pro</li>
+		<br>
+		<li>Your goals, like</li>
+		<li class="indent">gaining/losing weight</li>
+		<li class="indent">building muscle/losing fat</li>
+		<li class="indent">just maintaining your weight</li>
+		<br>
+		<li>Your goals in terms of results</li>
+		<li class="indent">building muscular endurance</li>
+		<li class="indent">building muscular size</li>
+		<li class="indent">building strength and power</li>
+	</ul>
+	<br><br>
+	<a href="/plan/create/form"><button>Create my workout plan!</button></a>
+</div>
+
+<div class="section lightbg">
+	<div class="footer-infos">
+		<p>Ab Store - 2022</p>
+		<p><span class="gradient-text">Made by <a href="http://www.allmtn.de/old" target="_blank">allmtn</a></span></p>
+		<p>All rights reserved</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{  url_for('static', filename='scripts/script.js')  }}">
+</script>
+
+</body>
+</html>

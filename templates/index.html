@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WELCOME TO THE AB STORE</title>
+	<link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='styles/styles.css')  }}">
+	<script src="https://kit.fontawesome.com/2339b7a2a3.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/x-icon" href="{{  url_for('static', filename='images/icons/favicon.ico')  }}">
+</head>
+<body>
+
+<div class="navbar">
+	<div class="links" id="links">	
+		<a href="/">Home</a>
+		<a>Food Calculator</a>
+		{% if logged_in == False %}
+			<a href="#get-started">Get started</a>
+			<a href="/login"><button>Create workout plan</button></a>
+		{% else %}
+			<a href="/profile">Profile</a>
+			<a href="/plan/create/overview"><button>Create workout plan</button></a>
+			<a href="/logout"><button class="gradient-border seamless-button">Logout</button></a>
+		{% endif %}
+	</div>
+	<div class="nav-manu-icon-wrapper">
+		<i class="fa-solid fa-bars" id="menu-icon" onmousedown="trigger_menu()"></i>
+	</div>
+</div>
+<div class="spacer-navbar"></div>
+
+<div class="video-container">
+	<div class="video-overlay">
+		{% if logged_in == False %}
+			<h2>work out<br>better <span class="gradient-text">for free</span></h2>
+		{% else %}
+			<h2>let's get<br>started, <span class="gradient-text">{{  un  }}</span></h2>
+		{% endif %}
+	</div>
+	<video id="video" autoplay muted loop>
+		<source src="{{  url_for('static', filename='deps/vid.mp4')  }}" type="video/mp4"></source>
+	</video>
+</div>
+
+<div class="section darkbg norlpad">
+	<div class="perks">
+		<div class="perks-card">
+			<i class="fa-solid fa-dumbbell"></i>
+			<h2>Work out better</h2>
+			<p>We customize your workout plans based on your interests, goals and previous experiences. Whether you want to bulk or cut, push out a few more reps for a new PR or just want to stay fit and healthy in your everyday life, we'll help you reach that goal!</p>
+		</div>
+		<div class="perks-card">
+			<i class="fa-solid fa-person"></i>
+			<h2>Personal plans</h2>
+			<p>One of the most important things about a workout plan is that it suits you well. No one knows you as good as you do, therefore you'll be able to customize your workout and meal plans. But still, you can let us make your plans so that you won't have to worry about matching food and exercises!</p>
+		</div>
+		<div class="perks-card">
+			<i class="fa-solid fa-leaf"></i>
+			<h2>Food calculator</h2>
+			<p>It is no secret that food as a huge impact on your health. We want to fully support you with picking food, preparing meals. Also, you can choose from many recipes to always keep your nutrition variedly. Since many of us focus on macros, we offer a calculator which tells you your foods macros precisely.</p>
+		</div>
+		<div class="perks-card">
+			<i class="fa-solid fa-money-bill"></i>
+			<h2>Free forever</h2>
+			<p>We all know these excessively advertised apps which seem nice but when you click on the download link, the ridiculous prices scare the hell out of you? Enough of that! The Ab store will always be free for all of us. We think that getting and staying healthy and maintaining a strong body shouldn't cost anything.</p>
+		</div>
+	</div>
+</div>
+
+{% if logged_in == False %}
+	<div class="section lightbg rlpad" id="get-started">
+		<h1 class="section-title">You're interested?</h1>
+		<p class="desc-text">You want to benefit from free workout plans and recipes for bulking and cutting? You want to use the Food calculator to track your macros? You want to get healthier and stronger?<br><br>You've come to the right place! The Ab Store is a completely free (forever) partner that you won't want to miss in your exercising routine. So, for using all these great features, register or log into your existing account!</p>
+		<br>
+		<div class="flex">
+			<a href="/login"><button>Log in</button></a>
+			<a href="/register"><button>Register</button></a>
+		</div>
+		<br>
+	</div>
+{% endif %}
+
+<div class="section darkbg">
+	<div class="footer-infos">
+		<p>Ab Store - 2022</p>
+		<p><span class="gradient-text">Made by <a href="http://www.allmtn.de/old" target="_blank">allmtn</a></span></p>
+		<p>All rights reserved</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{  url_for('static', filename='scripts/script.js')  }}">
+</script>
+
+</body>
+</html>
