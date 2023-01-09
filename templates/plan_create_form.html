@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WELCOME TO THE AB STORE</title>
+	<link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='styles/styles.css')  }}">
+	<script src="{{ url_for('static',filename='scripts/script.js') }}"></script>
+	<script src="https://kit.fontawesome.com/2339b7a2a3.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/x-icon" href="{{  url_for('static', filename='images/icons/favicon.ico')  }}">
+</head>
+<body>
+<!-- <script type="text/javascript" src="{{  url_for('static', filename='scripts/script.js')  }}"></script> -->
+
+<div class="navbar">
+	<div class="links" id="links">	
+		<a href="/">Home</a>
+		<a>Food Calculator</a>
+		<a href="/profile">Profile</a>
+		<a href="/logout"><button type="button" class="gradient-border seamless-button">Logout</button></a>
+	</div>
+	<div class="nav-manu-icon-wrapper">
+		<i class="fa-solid fa-bars" id="menu-icon" onmousedown="trigger_menu()"></i>
+	</div>
+</div>
+<div class="spacer-navbar"></div>
+
+<div class="video-container">
+	<div class="video-overlay">
+		<h2>let's create<br>your <span class="gradient-text">workout plan</span></h2>
+	</div>
+	<video id="video" autoplay muted loop>
+		<source src="{{  url_for('static', filename='deps/vid.mp4')  }}" type="video/mp4"></source>
+	</video>
+	<script type="text/javascript">
+		document.getElementById("video").play();
+	</script>
+</div>
+
+<div class="section darkbg rlpad">
+	<h1 class="desktoponly">Let's get to work, <span class="gradient-text">{{  name  }}!</span></h1><br class="desktoponly"><br class="desktoponly">
+	<form action="/plan/process-form" method="post">
+		<div class="question">
+			<h2>Fill in your personal data here:</h2><br>
+			<h4>Your weight in kgs or lbs/ounces</h4>
+			<div class="flex">
+				<input required type="number" name="weight" id="main-weight" min="40" max="200" step="1" value="50">
+				<input type="number" name="ounces" id="weight" class="imperial" min="0" max="15" step="1" value="0" style="display: none;">
+				<div class="kg-or-lbs">
+					<button type="button" class="unit-button" id="m" onmousedown="units(this)">kg</button>
+					<button type="button" class="unit-button" id="i" onmousedown="units(this)">lbs</button>
+					<input type="radio" name="which-unit" id="unit-selector-1" value="metric">
+					<input type="radio" name="which-unit" id="unit-selector-2" value="imperial">
+				</div>
+			</div><br>
+			<h4>Your height in cm or ft/in</h4>
+			<div class="flex">
+				<input required type="number" name="height" id="main-height" min="130" max="250" step="1" value="175">
+				<input type="number" name="inches" id="height" class="imperial" min="0" max="11" step="1" value="0" style="display: none;">
+				<div class="kg-or-lbs">
+					<button type="button" class="unit-button" id="m" onmousedown="units(this)">cm</button>
+					<button type="button" class="unit-button" id="i" onmousedown="units(this)">ft</button>
+				</div>
+			</div><br>
+			<h4>Your gender</h4>
+			<select required name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other" class="desktoponly">Walmart Bag (may result in inaccurate nutrition plans!)</option>
+				<option value="other" class="mobileonly">Walmart Bag</option>
+			</select><br>
+		</div><br>
+
+		<h2>What is your fitness level?</h2><br class="desktoponly">
+		<div class="question over-screen">
+			<div class="option-wrapper">
+				<label for="lvl1">
+					<div class="option inactive-border" id="q1" onmousedown="option_click(this)">
+						<h3>beginner</h3>
+					</div>
+				</label>
+				<label for="lvl2">
+					<div class="option inactive-border" id="q1" onmousedown="option_click(this)">
+						<h3>intermediate</h3>
+					</div>
+				</label>
+				<label for="lvl3">
+					<div class="option inactive-border" id="q1" onmousedown="option_click(this)">
+						<h3>pro</h3>
+					</div>
+				</label>
+			</div>
+
+			<input type="radio" name="lvl" id="lvl1" value="1" required>
+			<input type="radio" name="lvl" id="lvl2" value="2" required>
+			<input type="radio" name="lvl" id="lvl3" value="3" required>
+		</div>
+
+		<h2>What is your overall goal?</h2><br class="desktoponly">
+		<div class="question over-screen">
+			<div class="option-wrapper">
+				<label for="goals1">
+					<div class="option inactive-border" id="q2" onmousedown="option_click(this)">
+						<h3>bulding muscle (gaining weight)</h3>
+					</div>
+				</label>
+				<label for="goals2">
+					<div class="option inactive-border" id="q2" onmousedown="option_click(this)">
+						<h3>burning fat (losing weight)</h3>
+					</div>
+				</label>
+				<label for="goals3">
+					<div class="option inactive-border" id="q2" onmousedown="option_click(this)">
+						<h3>maintain current weight</h3>
+					</div>
+				</label>
+			</div>
+
+			<input type="radio" name="goals" id="goals1" value="gw" required>
+			<input type="radio" name="goals" id="goals2" value="lw" required>
+			<input type="radio" name="goals" id="goals3" value="hw" required>
+		</div>
+
+		<h2>What is your goal in terms of results?</h2><br class="desktoponly">
+		<div class="question over-screen">
+			<div class="option-wrapper">
+				<label for="typegoal1">
+					<div class="option inactive-border" id="q3" onmousedown="option_click(this)">
+						<h3>building muscular endurance</h3>
+					</div>
+				</label>
+				<label for="typegoal2">
+					<div class="option inactive-border" id="q3" onmousedown="option_click(this)">
+						<h3>building muscular size</h3>
+					</div>
+				</label>
+				<label for="typegoal3">
+					<div class="option inactive-border" id="q3" onmousedown="option_click(this)">
+						<h3>building strength and power</h3>
+					</div>
+				</label>
+			</div>
+
+			<input type="radio" name="typegoal" id="typegoal1" value="ME" required>
+			<input type="radio" name="typegoal" id="typegoal2" value="MS" required>
+			<input type="radio" name="typegoal" id="typegoal3" value="PS" required>
+		</div>
+
+		<!-- <h2>For which body part do you want to create a workout plan? </h2><br class="desktoponly">
+		<div class="question over-screen">
+			<div class="option-wrapper">
+				<label for="bodypart1">
+					<div class="option inactive-border" id="q4" onmousedown="option_click(this)">
+						<h3>whole body</h3>
+					</div>
+				</label>
+				<label for="bodypart2">
+					<div class="option inactive-border" id="q4" onmousedown="option_click(this)">
+						<h3>upper body</h3>
+					</div>
+				</label>
+				<label for="bodypart3">
+					<div class="option inactive-border" id="q4" onmousedown="option_click(this)">
+						<h3>lower body</h3>
+					</div>
+				</label>
+			</div>
+
+			<input type="radio" name="bodypart" id="bodypart1" value="wb" required>
+			<input type="radio" name="bodypart" id="bodypart2" value="ub" required>
+			<input type="radio" name="bodypart" id="bodypart3" value="lb" required>
+		</div> -->
+
+		<h2>Where do you exercise?</h2><br class="desktoponly">
+		<div class="question over-screen">
+			<div class="option-wrapper">
+				<label for="loc1">
+					<div class="option inactive-border" id="q5" onmousedown="option_click(this)">
+						<h3>at the gym</h3>
+					</div>
+				</label>
+				<label for="loc2">
+					<div class="option inactive-border" id="q5" onmousedown="option_click(this)">
+						<h3>at home</h3>
+					</div>
+				</label>
+				<label for="loc3">
+					<div class="option inactive-border" id="q5" onmousedown="option_click(this)">
+						<h3>somewhere else (e.g. park)</h3>
+					</div>
+				</label>
+			</div>
+
+			<input type="radio" name="loc" id="loc1" value="gym" required>
+			<input type="radio" name="loc" id="loc2" value="home" required>
+			<input type="radio" name="loc" id="loc3" value="other" required>
+		</div>
+
+		<h2>How many times a week will you work out?</h2><br class="desktoponly">
+		<div class="question over-screen">
+			<div class="option-wrapper">
+				<label for="woquan1">
+					<div class="option inactive-border" id="q6" onmousedown="option_click(this)">
+						<h3>once</h3>
+					</div>
+				</label>
+				<label for="woquan2">
+					<div class="option inactive-border" id="q6" onmousedown="option_click(this)">
+						<h3>twice</h3>
+					</div>
+				</label>
+				<label for="woquan3">
+					<div class="option inactive-border" id="q6" onmousedown="option_click(this)">
+						<h3>three times</h3>
+					</div>
+				</label>
+			</div><br class="desktoponly">
+			<div class="option-wrapper">
+				<label for="woquan4">
+					<div class="option inactive-border" id="q6" onmousedown="option_click(this)">
+						<h3>four times</h3>
+					</div>
+				</label>
+				<label for="woquan5">
+					<div class="option inactive-border" id="q6" onmousedown="option_click(this)">
+						<h3>five times</h3>
+					</div>
+				</label>
+				<label for="woquan6">
+					<div class="option inactive-border" id="q6" onmousedown="option_click(this)">
+						<h3>six times</h3>
+					</div>
+				</label>
+			</div>
+
+			<input type="radio" name="woquan" id="woquan1" value="1" required>
+			<input type="radio" name="woquan" id="woquan2" value="2" required>
+			<input type="radio" name="woquan" id="woquan3" value="3" required>
+			<input type="radio" name="woquan" id="woquan4" value="4" required>
+			<input type="radio" name="woquan" id="woquan5" value="5" required>
+			<input type="radio" name="woquan" id="woquan6" value="6" required>
+		</div>
+	
+		<br><br class="desktoponly">
+		<button type="submit">Process data</button>
+	</form>
+
+</div>
+
+
+<div class="section lightbg">
+	<div class="footer-infos">
+		<p>Ab Store - 2022</p>
+		<p><span class="gradient-text">Made by <a href="http://www.allmtn.de/old" target="_blank">allmtn</a></span></p>
+		<p>All rights reserved</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	selectFirstUnit();
+</script>
+
+</body>
+</html>
