@@ -1,4 +1,3 @@
 Flask==2.0.3
-pymongo
-datetime
-py_edamam
+pymongo==4.3.3
+datetime==4.5
