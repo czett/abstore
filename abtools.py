@@ -1,5 +1,5 @@
 import string, math
-from py_edamam import Edamam
+#from py_edamam import Edamam
 
 def repset(goal, lvl):
 
@@ -32,13 +32,13 @@ def exercise_list():
 		content = ex.readlines()
 		return content
 
-def find_nutrients(term): # to be added: carbs, fat
-	e = Edamam(nutrition_appid='c3d0e8a5', nutrition_appkey='d2af91e496fc2906ccec7c9bf0b46f40')
-
-	cal = e.search_nutrient(search_value)['totalNutrients']['ENERC_KCAL']['quantity'] # kcal
-	prt = e.search_nutrient(search_value)['totalNutrients']['PROCNT']['quantity'] # in grams
-
-	return cal, prt
+#def find_nutrients(term): # to be added: carbs, fat
+#	e = Edamam(nutrition_appid='c3d0e8a5', nutrition_appkey='d2af91e496fc2906ccec7c9bf0b46f40')
+#
+#	cal = e.search_nutrient(search_value)['totalNutrients']['ENERC_KCAL']['quantity'] # kcal
+#	prt = e.search_nutrient(search_value)['totalNutrients']['PROCNT']['quantity'] # in grams
+#
+#	return cal, prt
 
 def lbs_to_kg(lbs, oz):
 	kgs = lbs * 0.4536
